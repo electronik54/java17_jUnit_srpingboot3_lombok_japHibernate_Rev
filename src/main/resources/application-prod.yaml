@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/revisiondb;AUTO_SERVER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+  h2:
+    console:
+      enabled: false
+
+app:
+  environment: production
+  banner: "Running with PROD profile - file based H2 database"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+logging:
+  level:
+    com.electronik54.revision_3: INFO
+    org.hibernate.SQL: WARN
